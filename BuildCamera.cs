@@ -28,7 +28,7 @@ namespace Valheim_Build_Camera
 	public class Valheim_Build_Camera : BaseUnityPlugin
 	{
 		private const string MID = "org.gittywithexcitement.plugins.valheim.buildCamera";
-		private const string VERSION = "1.5.1";
+		private const string VERSION = "1.6.0";
 		private const string PluginName = "Build Camera";
 
 		private static ConfigFile configFile = new ConfigFile(Path.Combine(Paths.ConfigPath, "Build Camera.cfg"), true);
