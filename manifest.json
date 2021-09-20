@@ -1,7 +1,7 @@
 {
     "name": "Build_Camera",
-    "version_number": "1.5.0",
-    "website_url": "",
+    "version_number": "1.6.1",
+    "website_url": "https://github.com/gittywithexcitement/ValheimBuildCamera/",
     "description": "Adds a build camera to make building easier, to simplify getting the right perspective so that you can see the snap point. No more scaffolding.",
     "dependencies": [
         "denikson-BepInExPack_Valheim-5.4.701"
