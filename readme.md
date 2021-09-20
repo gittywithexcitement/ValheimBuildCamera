@@ -43,6 +43,10 @@ This mod only needs to be installed on your client, not the server, and other cl
 
 # Changelog
 
+ * Version 1.6
+    * Rebuild for Hearth and Home update.
+    * Change build camera's controller up and down movement to reuse same buttons as controller jump and crouch.
+    * Add support for ImprovedHammer from BuildIt mod.
  * Version 1.5.1
     * Reduce spam when changing the two build distances (now uses LogDebug).
     * When changing the two build distances, be a little more agressive: change if current value is less than setting.
