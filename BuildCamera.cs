@@ -524,11 +524,11 @@ namespace Valheim_Build_Camera
 			{
 				vector -= Vector3.forward;
 			}
-			if (ZInput.GetButton("Jump"))
+			if (ZInput.GetButton("Jump") || ZInput.GetButtonDown("JoyJump"))
 			{
 				vector += Vector3.up;
 			}
-			if (ZInput.GetButton("Crouch"))
+			if (ZInput.GetButton("Crouch") || ZInput.GetButtonDown("JoyCrouch"))
 			{
 				vector -= Vector3.up;
 			}
@@ -539,8 +539,6 @@ namespace Valheim_Build_Camera
 			// the whole point of having an analog input.
 			vector.Normalize();
 
-			vector += Vector3.up * ZInput.GetJoyRTrigger();
-			vector -= Vector3.up * ZInput.GetJoyLTrigger();
 			vector += Vector3.right * ZInput.GetJoyLeftStickX();
 			vector += -Vector3.forward * ZInput.GetJoyLeftStickY();
 
