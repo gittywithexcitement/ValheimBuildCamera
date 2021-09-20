@@ -28,7 +28,7 @@ namespace Valheim_Build_Camera
 	public class Valheim_Build_Camera : BaseUnityPlugin
 	{
 		private const string MID = "org.gittywithexcitement.plugins.valheim.buildCamera";
-		private const string VERSION = "1.6";
+		private const string VERSION = "1.6.1";
 		private const string PluginName = "Build Camera";
 
 		private static ConfigFile configFile = new ConfigFile(Path.Combine(Paths.ConfigPath, "Build Camera.cfg"), true);
@@ -524,11 +524,11 @@ namespace Valheim_Build_Camera
 			{
 				vector -= Vector3.forward;
 			}
-			if (ZInput.GetButton("Jump") || ZInput.GetButtonDown("JoyJump"))
+			if (ZInput.GetButton("Jump") || ZInput.GetButton("JoyJump"))
 			{
 				vector += Vector3.up;
 			}
-			if (ZInput.GetButton("Crouch") || ZInput.GetButtonDown("JoyCrouch"))
+			if (ZInput.GetButton("Crouch") || ZInput.GetButton("JoyCrouch"))
 			{
 				vector -= Vector3.up;
 			}

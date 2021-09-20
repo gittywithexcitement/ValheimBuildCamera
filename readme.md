@@ -43,6 +43,8 @@ This mod only needs to be installed on your client, not the server, and other cl
 
 # Changelog
 
+ * Version 1.6.1
+    * Fix camera's controller up and down movement.
  * Version 1.6
     * Rebuild for Hearth and Home update.
     * Change build camera's controller up and down movement to reuse same buttons as controller jump and crouch.
