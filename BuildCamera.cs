@@ -169,7 +169,7 @@ namespace Valheim_Build_Camera
 		}
 
 		static readonly String[] toolNames
-			= new String[] { "$item_hammer", "$item_cultivator", "$item_hoe", "$PlumgaPlantItShovel", "$PlumgaClutterTool" , "$ImprovedHammer" };
+			= new String[] { "$item_hammer", "$item_cultivator", "$item_hoe", "$PlumgaPlantItShovel", "$PlumgaClutterTool" , "$ImprovedHammer", "$item_pickaxe_antler", "$item_pickaxe_bronze", "$item_pickaxe_iron" };
 
 		/// <summary>
 		/// Returns true when the item is a Build Camera-compatible tool such as hammer.
