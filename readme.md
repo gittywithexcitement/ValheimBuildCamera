@@ -29,6 +29,7 @@ Start the game with the plugin installed, then edit the file `\BepInEx\config\Bu
   * Camera_Range_Multiplier
   * Move_With_Respect_To_World
   * Verbose_Logging
+  * Tool_Names
 
 # Incompatible with
 

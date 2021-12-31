@@ -31,6 +31,8 @@ namespace Valheim_Build_Camera
 		private const string VERSION = "1.6.1";
 		private const string PluginName = "Build Camera";
 
+		private const string DEFAULT_TOOL_NAMES = "item_hammer,item_cultivator,item_hoe,PlumgaPlantItShovel,PlumgaClutterTool,ImprovedHammer,odin_hammer";
+
 		private static ConfigFile configFile = new ConfigFile(Path.Combine(Paths.ConfigPath, "Build Camera.cfg"), true);
 
 		private static ConfigEntry<float> distanceCanBuildFromAvatar
@@ -61,6 +63,10 @@ namespace Valheim_Build_Camera
 			= configFile.Bind("General", "Verbose_Logging", false,
 				"When true, increases verbosity of logging. Enable this if you're wondering why you're unable " +
 				"to enable the Build Camera.");
+
+		private static ConfigEntry<string> configToolNames
+			= configFile.Bind("General", "Tool_Names", DEFAULT_TOOL_NAMES,
+				"List of comma-separated tool names that will allow Build Camera.");
 
 		// This is how we "add" member variables to a class of the game.
 		private static Dictionary<Player, bool> inBuildMode = new Dictionary<Player, bool>();
@@ -168,8 +174,12 @@ namespace Valheim_Build_Camera
 			return (bool)Player.m_localPlayer && player == Player.m_localPlayer;
 		}
 
-		static readonly String[] toolNames
-			= new String[] { "$item_hammer", "$item_cultivator", "$item_hoe", "$PlumgaPlantItShovel", "$PlumgaClutterTool" , "$ImprovedHammer" };
+		static string [] toolNames
+		{
+			get => configToolNames.Value.Split(',')
+				.Select(x => "$" + x.Trim())
+				.ToArray();
+		}
 
 		/// <summary>
 		/// Returns true when the item is a Build Camera-compatible tool such as hammer.
