@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace Valheim_Build_Camera
 		private const string VERSION = "1.6.1";
 		private const string PluginName = "Build Camera";
 
-		private static ConfigFile configFile = new ConfigFile(Path.Combine(Paths.ConfigPath, "Build Camera.cfg"), true);
+		private static ConfigFile configFile = new ConfigFile(Path.Combine(Paths.ConfigPath, "Build Camera.cfg"), true, new BepInPlugin(MID, PluginName, VERSION));
 
 		private static ConfigEntry<float> distanceCanBuildFromAvatar
 			= configFile.Bind("General", "Distance_Can_Build_From_Avatar", 100f,
@@ -90,6 +91,13 @@ namespace Valheim_Build_Camera
 		{
 			var harmony = new Harmony(MID);
 			harmony.PatchAll();
+
+			// BepInEx.ConfigurationManager read property "Config" without setter from parent class BaseUnityPlugin and only reflection help us to set backing field
+			var field = typeof(BaseUnityPlugin).GetField("<Config>k__BackingField", BindingFlags.Instance | BindingFlags.NonPublic);
+			if (field != null)
+			{
+				field.SetValue(this, configFile);
+			}
 
 			log = BepInEx.Logging.Logger.CreateLogSource(PluginName);
 		}
